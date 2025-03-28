@@ -1,0 +1,111 @@
+
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Zitatwolke</title>
+    <style>
+        body {
+            background-color: white;
+            color: black;
+            font-family: sans-serif;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        .quote {
+            position: absolute;
+            white-space: nowrap;
+            padding: 4px 8px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 4px;
+            text-decoration: none;
+            color: black;
+            font-size: 1rem;
+        }
+        #speedControl {
+            position: fixed;
+            bottom: 10px;
+            left: 10px;
+            z-index: 9999;
+        }
+    </style>
+</head>
+<body>
+    <input type="range" id="speedControl" min="0.1" max="2" step="0.1" value="0.5" />
+
+    <script>
+        const placed = [];
+        const maxAttempts = 100;
+        const container = document.body;
+        let baseSpeed = 0.5;
+
+        document.getElementById('speedControl').addEventListener('input', e => {
+            baseSpeed = parseFloat(e.target.value);
+        });
+
+        function placeQuote(quote, link) {
+            const el = document.createElement('a');
+            el.textContent = quote;
+            el.href = link;
+            el.className = 'quote';
+            el.target = '_blank';
+            container.appendChild(el);
+
+            let attempts = 0;
+            let x, y;
+            do {
+                x = Math.random() * (window.innerWidth - el.offsetWidth);
+                y = Math.random() * (window.innerHeight - el.offsetHeight);
+                el.style.left = `${x}px`;
+                el.style.top = `${y}px`;
+                attempts++;
+            } while (overlaps(el) && attempts < maxAttempts);
+
+            if (attempts >= maxAttempts) {
+                el.remove();
+                return;
+            }
+
+            moveQuote(el);
+        }
+
+        function overlaps(el) {
+            const rect1 = el.getBoundingClientRect();
+            return placed.some(r2 => {
+                return !(rect1.right < r2.left || 
+                         rect1.left > r2.right || 
+                         rect1.bottom < r2.top || 
+                         rect1.top > r2.bottom);
+            }) ? true : (placed.push(rect1), false);
+        }
+
+        function moveQuote(el) {
+            let x = parseFloat(el.style.left);
+            const move = () => {
+                x -= baseSpeed;
+                if (x + el.offsetWidth < 0) {
+                    el.remove();
+                    return;
+                }
+                el.style.left = `${x}px`;
+                requestAnimationFrame(move);
+            };
+            requestAnimationFrame(move);
+        }
+
+        fetch("https://raw.githubusercontent.com/M8nuuX/zitatwolke/main/punkte_umap.json")
+            .then(r => r.json())
+            .then(data => {
+                let i = 0;
+                const addQuote = () => {
+                    const q = data[i % data.length];
+                    placeQuote(q.text, q.url);
+                    i++;
+                    setTimeout(addQuote, 1000);
+                };
+                addQuote();
+            })
+            .catch(err => console.error("❌ Fehler beim Laden:", err));
+    </script>
+</body>
+</html>
