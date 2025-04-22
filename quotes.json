@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "quote": "\"Effiziente Kommunikation auf der Baustelle minimiert Fehler und maximiert Produktivität.\"",
+    "title": "Moderne Baustellenführung",
+    "author": "Dr. Ingrid Schneider"
+  },
+  {
+    "id": 2,
+    "quote": "„Architektur ist nicht nur der Bau von Strukturen, sondern das Schaffen von Erlebnissen.“",
+    "title": "Architektur der Sinne",
+    "author": "Julia Berger"
+  },
+  {
+    "id": 3,
+    "quote": "„Integrierte Infrastruktursysteme sind entscheidend für nachhaltige städtische Entwicklung und Resilienz gegenüber zukünftigen Herausforderungen.“",
+    "title": "Nachhaltige Stadtplanung: Strategien für die Zukunft",
+    "author": "Dr. Laura Gruber"
+  },
+  {
+    "id": 4,
+    "quote": "„Städte sind lebende Organismen; Planung muss Wachstum und Anpassung harmonisch vereinen.“",
+    "title": "Urbane Evolution: Geschichte und Strategie",
+    "author": "Dr. Clara Meier"
+  },
+  {
+    "id": 5,
+    "quote": "„Effizienz auf der Baustelle erfordert eine harmonische Symbiose von Mensch und Maschine.“",
+    "title": "Moderne Bauprozesse",
+    "author": "Anna Keller"
+  },
+  {
+    "id": 6,
+    "quote": "\"In alten Mauern flüstert die Zukunft ihre Träume, Stein für Stein.\"",
+    "title": "Visionen der Vergangenheit",
+    "author": "Johannes Richter"
+  },
+  {
+    "id": 7,
+    "quote": "\"Restaurierung ist das präzise Zusammenspiel von Tradition und Innovation zur Erhaltung der baulichen Authentizität.\"",
+    "title": "Architektur der Erhaltung",
+    "author": "Dr. Marianne Keller"
+  },
+  {
+    "id": 8,
+    "quote": "\"Architektur ist die Kunst, Raum und Struktur harmonisch zu verbinden, um funktionale Ästhetik zu schaffen.\"",
+    "title": "Raum und Struktur: Die Essenz der Architektur",
+    "author": "Helmut Krämer"
+  },
+  {
+    "id": 9,
+    "quote": "\"Erfolgreiche Stadtplanung harmoniert urbanes Wachstum mit nachhaltiger Lebensqualität.\"",
+    "title": "Urbanes Gleichgewicht: Stadtplanung im 21. Jahrhundert",
+    "author": "Dr. Ingrid Maurer"
+  },
+  {
+    "id": 10,
+    "quote": "\"Die Kathedrale erzählt Geschichten, die im Mörtel der Jahrhunderte verborgen sind.\"",
+    "title": "Steinerne Zeugen: Die Geschichte der Architektur",
+    "author": "Helmut Braun"
+  }
+]
